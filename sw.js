@@ -2,12 +2,13 @@
 //
 // Qanday işlaydi:
 //  • Örnatilganda ilovaning özi (HTML, manifest, ikonkalar) va barça taşqi kutubxonalar
-//    (Tailwind, şriftlar, Font Awesome ikonkalari, Tone.js) keşga oldindan yuklab qöyiladi.
+//    (şriftlar, Font Awesome ikonkalari, Tone.js) keşga oldindan yuklab qöyiladi.
+//    Tailwind CSS HTML içiga yiğilgan (npm run build:css), shuning uçun alohida yuklanmaydi.
 //  • Sahifa (HTML): avval internetdan olinadi — yangilanişlar darhol keladi; internet bölmasa keşdan.
 //  • Kutubxonalar va şriftlar: keşdan beriladi (tez), orqa fonda yangilab qöyiladi.
 //
 // Ilova yangilanganda CACHE_VERSION ni oşiring — eski keş öçiriladi.
-const CACHE_VERSION = 'linguauz-v5';
+const CACHE_VERSION = 'linguauz-v6';
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const LIB_CACHE = `${CACHE_VERSION}-lib`;
 
@@ -23,7 +24,6 @@ const APP_SHELL = [
 
 const FA = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1';
 const LIBRARIES = [
-    'https://cdn.tailwindcss.com',
     'https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js',
     `${FA}/css/all.min.css`,
     // all.min.css içidagi ikonka şriftlari faqat kerak bölganda yuklanadi — oldindan olib qöyamiz
@@ -126,7 +126,7 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(caches.match(request, { ignoreSearch: true }).then(c => c || fetch(request)));
         return;
     }
-    if (/^(cdn\.tailwindcss\.com|cdnjs\.cloudflare\.com|fonts\.googleapis\.com|fonts\.gstatic\.com)$/.test(url.hostname)) {
+    if (/^(cdnjs\.cloudflare\.com|fonts\.googleapis\.com|fonts\.gstatic\.com)$/.test(url.hostname)) {
         event.respondWith(staleWhileRevalidate(request, event));
     }
 });

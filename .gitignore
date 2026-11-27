@@ -1,5 +1,6 @@
 # Faqat lokal işlab çiqariş uçun — saytga çiqmaydi
 backup/
+node_modules/
 .claude/
 *.log
 Thumbs.db

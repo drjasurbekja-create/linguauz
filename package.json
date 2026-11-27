@@ -1,0 +1,21 @@
+{
+  "name": "linguauz",
+  "version": "1.0.0",
+  "description": "Öqiş, tinglaş, yoziş va gapiriş maşqlari bilan ingliz tilini örganiş uçun veb-ilova. Uç daraja (A1–C1), kunlik maqsad va seriya, sözlarni takrorlaş (Leitner usuli), xato javoblarga tuşuntiriş.",
+  "scripts": {
+    "build:css": "node build-css.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drjasurbekja-create/linguauz.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/drjasurbekja-create/linguauz/issues"
+  },
+  "homepage": "https://github.com/drjasurbekja-create/linguauz#readme",
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  },
+  "private": true
+}
