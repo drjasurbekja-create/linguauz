@@ -5,3 +5,12 @@ node_modules/
 *.log
 Thumbs.db
 .DS_Store
+# Android: yiğiş natijalari, lokal SDK yöli va IMZO KALITI (kalitni alohida zaxiralang!)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/*.keystore
+android/*.apk
+android/*.idsig
+android/build.log
