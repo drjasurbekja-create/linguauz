@@ -7,7 +7,7 @@
 //  • Kutubxonalar va şriftlar: keşdan beriladi (tez), orqa fonda yangilab qöyiladi.
 //
 // Ilova yangilanganda CACHE_VERSION ni oşiring — eski keş öçiriladi.
-const CACHE_VERSION = 'linguauz-v3';
+const CACHE_VERSION = 'linguauz-v4';
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const LIB_CACHE = `${CACHE_VERSION}-lib`;
 
@@ -63,7 +63,8 @@ async function cacheGoogleFonts(cache) {
 self.addEventListener('install', (event) => {
     event.waitUntil((async () => {
         const app = await caches.open(APP_CACHE);
-        await app.addAll(APP_SHELL);
+        // cache: 'reload' — brauzerning HTTP keşini (GitHub Pages: 10 daqiqa) çetlab, serverdan yangisini olamiz
+        await app.addAll(APP_SHELL.map(url => new Request(url, { cache: 'reload' })));
         const lib = await caches.open(LIB_CACHE);
         // Bitta kutubxona yuklanmasa ham ilovaning özi örnatilaversin — qolganlari keyin keşga tuşadi
         await Promise.allSettled([...LIBRARIES.map(u => cacheUrl(lib, u)), cacheGoogleFonts(lib)]);
@@ -84,7 +85,8 @@ async function networkFirst(request) {
     const cache = await caches.open(APP_CACHE);
     try {
         const res = await Promise.race([
-            fetch(request),
+            // cache: 'no-cache' — har safar serverdan tekşiradi (özgarmagan bölsa 304, juda tez), yangilaniş darhol keladi
+            fetch(request, { cache: 'no-cache' }),
             new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 4000))
         ]);
         // Har bir sahifa öz manzili bilan saqlanadi (index.html — yönaltiruvçi, asosiy fayl — ilova)
