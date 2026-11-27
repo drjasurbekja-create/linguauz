@@ -95,6 +95,10 @@
             background-color: rgba(99, 102, 241, 0.15);
             color: #4f46e5;
         }
+        .vocab-word:focus-visible {
+            outline: 3px solid rgba(99, 102, 241, 0.55);
+            outline-offset: 2px;
+        }
         .dark .vocab-word:hover {
             background-color: rgba(129, 140, 248, 0.25);
             color: #a5b4fc;
@@ -187,41 +191,41 @@
 
     <!-- Top Navigation Bar -->
     <header class="sticky top-0 z-40 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div class="max-w-5xl mx-auto px-3 min-[400px]:px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
             <!-- Brand Logo -->
-            <button onclick="navigateTo('dashboard')" class="flex items-center gap-2.5 group focus:outline-none">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+            <button onclick="navigateTo('dashboard')" class="flex items-center gap-2 min-[400px]:gap-2.5 group shrink-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/40 rounded-xl" aria-label="LinguaUZ — bosh sahifa">
+                <div class="w-10 h-10 max-[399px]:w-9 max-[399px]:h-9 rounded-xl bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
                     <i class="fa-solid fa-graduation-cap text-lg"></i>
                 </div>
-                <div class="text-left">
-                    <span class="font-display font-extrabold text-lg tracking-tight bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">LinguaUZ</span>
+                <div class="hidden min-[360px]:block text-left">
+                    <span class="font-display font-extrabold text-base min-[400px]:text-lg tracking-tight bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">LinguaUZ</span>
                     <span class="hidden sm:block text-[10px] font-semibold uppercase tracking-wider text-slate-400">4 Könikma Akademiyasi</span>
                 </div>
             </button>
 
             <!-- Stats & Theme Controls -->
-            <div class="flex items-center gap-2 sm:gap-4">
+            <div class="flex items-center gap-1.5 min-[400px]:gap-2 sm:gap-4">
                 <!-- Streak Counter -->
-                <div id="header-streak-pill" class="flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 px-3 py-1.5 rounded-full text-amber-600 dark:text-amber-400 font-bold text-sm" title="Kunlik seriya">
+                <div id="header-streak-pill" class="flex items-center gap-1.5 bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800/60 px-2.5 min-[400px]:px-3 py-1.5 rounded-full text-amber-600 dark:text-amber-400 font-bold text-sm" title="Kunlik seriya">
                     <i id="header-streak-icon" class="fa-solid fa-fire text-amber-500 animate-pulse"></i>
                     <span id="header-streak">1</span>
                     <span class="hidden md:inline text-xs font-medium">kun</span>
                 </div>
 
                 <!-- XP Points -->
-                <div class="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 px-3 py-1.5 rounded-full text-indigo-600 dark:text-indigo-400 font-bold text-sm" title="Töplangan XP ballar">
+                <div class="flex items-center gap-1.5 bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800/60 px-2.5 min-[400px]:px-3 py-1.5 rounded-full text-indigo-600 dark:text-indigo-400 font-bold text-sm" title="Töplangan XP ballar">
                     <i class="fa-solid fa-bolt text-indigo-500"></i>
                     <span id="header-xp">0</span>
-                    <span class="text-xs font-semibold">XP</span>
+                    <span class="hidden min-[360px]:inline text-xs font-semibold">XP</span>
                 </div>
 
                 <!-- Sound Toggle -->
-                <button id="sound-toggle-btn" onclick="toggleSound()" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 transition-colors" title="Ovoz effektlari">
+                <button id="sound-toggle-btn" onclick="toggleSound()" class="w-9 h-9 max-[399px]:w-8 max-[399px]:h-8 shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 transition-colors" title="Ovoz effektlari" aria-label="Ovoz effektlarini yoqiş yoki öçiriş">
                     <i id="sound-icon" class="fa-solid fa-volume-high text-sm"></i>
                 </button>
 
                 <!-- Dark Mode Toggle -->
-                <button onclick="toggleTheme()" class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 transition-colors" title="Tungi / Kunduzgi rejim">
+                <button onclick="toggleTheme()" class="w-9 h-9 max-[399px]:w-8 max-[399px]:h-8 shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 transition-colors" title="Tungi / Kunduzgi rejim" aria-label="Tungi yoki kunduzgi rejimga ötiş">
                     <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
                 </button>
             </div>
@@ -424,6 +428,27 @@
                 </div>
                 <div id="saved-words-list" class="flex flex-wrap gap-2">
                     <p class="text-sm text-slate-400 italic">Hozirça saqlangan sözlar yöq.</p>
+                </div>
+            </div>
+            <!-- Progress zaxirasi: brauzer tozalansa yoki boşqa qurilmaga ötilsa -->
+            <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div class="flex items-start gap-2.5">
+                    <div class="w-9 h-9 shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 dark:text-white">Progress zaxirasi</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md">Natijalaringiz faqat şu brauzerda saqlanadi. Boşqa qurilmaga ötkaziş yoki brauzer tozalanişidan oldin faylga saqlab qöying.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2 shrink-0">
+                    <button onclick="exportProgress()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-colors">
+                        <i class="fa-solid fa-download"></i> Faylga saqlaş
+                    </button>
+                    <button onclick="document.getElementById('import-progress-input').click()" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold transition-colors">
+                        <i class="fa-solid fa-upload"></i> Fayldan tiklaş
+                    </button>
+                    <input id="import-progress-input" type="file" accept=".json,application/json" class="hidden" onchange="importProgress(this)">
                 </div>
             </div>
         </section>
@@ -721,9 +746,9 @@
                         Gapiriş uçun mikrofon tugmasini bosing
                     </p>
 
-                    <!-- Fallback Simulation Button (if iframe blocks mic or user wants quick test) -->
-                    <button onclick="simulateSpeechSuccess()" class="text-xs text-slate-400 hover:text-indigo-500 underline transition-colors">
-                        Mikrofon işlamayaptimi? Talaffuz simulyatsiyasini sinaş
+                    <!-- Zaxira: faqat mikrofon işlatib bölmaganda körinadi (ruxsat yöq, brauzer qöllamaydi, internet yöq) -->
+                    <button id="speech-sim-btn" onclick="simulateSpeechSuccess()" class="hidden text-xs text-slate-500 hover:text-indigo-500 underline transition-colors">
+                        Mikrofonsiz sinab köriş (XP berilmaydi)
                     </button>
                 </div>
 
@@ -778,7 +803,7 @@
 
     <!-- ==================== VOCABULARY MODAL / POPOVER ==================== -->
     <div id="vocab-modal" class="hidden fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeVocabModal(event)">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4 view-enter" onclick="event.stopPropagation()">
+        <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-4 view-enter" onclick="event.stopPropagation()" role="dialog" aria-modal="true" aria-labelledby="modal-word">
             <div class="flex items-start justify-between">
                 <div>
                     <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-500">Luğat kartoçkasi</span>
@@ -3216,6 +3241,42 @@
             document.getElementById('review-modal').classList.add('hidden');
         }
 
+        // ---------------------------------------------------------
+        // PROGRESS ZAXIRASI: JSON faylga saqlaş va undan tiklaş
+        // ---------------------------------------------------------
+        function exportProgress() {
+            const data = { app: 'LinguaUZ', version: 1, exportedAt: new Date().toISOString(), state: appState };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `linguauz-progress-${localDateKey()}.json`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+            showToast('Progress faylga saqlandi.', 'success');
+        }
+
+        async function importProgress(input) {
+            const file = input.files && input.files[0];
+            input.value = ''; // bir xil faylni qayta tanlaş mumkin bölsin
+            if (!file) return;
+            try {
+                const data = JSON.parse(await file.text());
+                const s = data && data.app === 'LinguaUZ' ? data.state : null;
+                if (!s || typeof s.xp !== 'number' || !Array.isArray(s.savedWords)) throw new Error('format');
+                const summary = `${s.xp} XP, ${(s.doneLessons || []).length} ta dars, ${s.savedWords.length} ta söz`;
+                if (!confirm(`Fayldagi progress: ${summary}.\nHozirgi progress uning bilan almaştiriladi. Davom etasizmi?`)) return;
+                localStorage.setItem('linguauz_state_v1', JSON.stringify(s));
+                appState = loadState(); // eski versiya fayllari ham töğri birlaşadi
+                saveState();
+                applyTheme();
+                showToast(`Progress tiklandi: ${summary}.`, 'success');
+            } catch (e) {
+                showToast('Bu fayl LinguaUZ progress fayli emas yoki buzilgan.', 'info');
+            }
+        }
+
         function deleteSavedWord(idx) {
             const [removed] = appState.savedWords.splice(idx, 1);
             if (!removed) return;
@@ -3238,7 +3299,8 @@
             const htmlParagraphs = currentReadingItem.paragraphs.map(p => {
                 plainParts.push(p.replace(/\{|\}/g, ''));
                 const formatted = p.replace(/\{([a-zA-Z]+)\}/g, (match, word) => {
-                    return `<span onclick="openVocabModal('${word}')" class="vocab-word font-semibold text-indigo-600 dark:text-indigo-400">${word}</span>`;
+                    // <button> — Tab bilan kelib, Enter/Probel bilan oçiş mumkin (ekran öquvçi dasturlar ham taniydi)
+                    return `<button type="button" onclick="openVocabModal('${word}')" aria-haspopup="dialog" title="Tarjimasini körish" class="vocab-word font-semibold text-indigo-600 dark:text-indigo-400">${word}</button>`;
                 });
                 return `<p>${formatted}</p>`;
             }).join('');
@@ -3305,13 +3367,20 @@
             document.getElementById('modal-translation').textContent = info.uz;
             document.getElementById('modal-example').textContent = `"${info.example}"`;
 
+            vocabReturnFocus = document.activeElement; // yopilganda fokus şu sözga qaytadi
             document.getElementById('vocab-modal').classList.remove('hidden');
+            document.getElementById('save-vocab-btn').focus();
             speakText(wordKey, 0.85);
         }
 
+        let vocabReturnFocus = null;
         function closeVocabModal(e) {
+            const modal = document.getElementById('vocab-modal');
+            if (modal.classList.contains('hidden')) return;
             if (!e || e.target.id === 'vocab-modal') {
-                document.getElementById('vocab-modal').classList.add('hidden');
+                modal.classList.add('hidden');
+                if (vocabReturnFocus && document.contains(vocabReturnFocus)) vocabReturnFocus.focus();
+                vocabReturnFocus = null;
             }
         }
 
@@ -3535,6 +3604,128 @@
             }
         }
 
+        // GRAMMAR-START
+        // Özbek öquvçilarida eng köp uçraydigan grammatika xatolarini qoidalar asosida topadi (internetsiz işlaydi).
+        // Har bir qoida faqat aniq xato holatni uşlaydi: töğri gapni xato deb körsatgandan körsatmagan yaxşi.
+        // Natija: [{ wrong: "he are", right: "he is", why: "izoh" }]
+        const GR_VERBS = { // asosiy şakl → 3-şaxs birlik (he/she -s)
+            go: 'goes', do: 'does', have: 'has', like: 'likes', want: 'wants', play: 'plays', live: 'lives', work: 'works',
+            study: 'studies', eat: 'eats', drink: 'drinks', read: 'reads', write: 'writes', speak: 'speaks', watch: 'watches',
+            need: 'needs', love: 'loves', make: 'makes', take: 'takes', get: 'gets', come: 'comes', know: 'knows',
+            think: 'thinks', say: 'says', help: 'helps', visit: 'visits', walk: 'walks', cook: 'cooks', buy: 'buys',
+            wake: 'wakes', sleep: 'sleeps', teach: 'teaches', learn: 'learns', use: 'uses', try: 'tries', believe: 'believes',
+            enjoy: 'enjoys', prefer: 'prefers', listen: 'listens', start: 'starts', finish: 'finishes', run: 'runs', swim: 'swims'
+        };
+        const GR_THIRD = Object.fromEntries(Object.entries(GR_VERBS).map(([base, s]) => [s, base])); // goes → go
+        const GR_PAST = { went: 'go', came: 'come', saw: 'see', ate: 'eat', did: 'do', had: 'have', took: 'take', made: 'make',
+            bought: 'buy', wrote: 'write', spoke: 'speak', got: 'get', knew: 'know', thought: 'think', said: 'say', ran: 'run',
+            swam: 'swim', drank: 'drink', woke: 'wake', slept: 'sleep', taught: 'teach', played: 'play', visited: 'visit',
+            liked: 'like', wanted: 'want', worked: 'work', studied: 'study', watched: 'watch', cooked: 'cook', learned: 'learn' };
+        // Bu sözlardan keyin "he go" töğri böladi: "Does he go?", "Can she play?", "Let it go"
+        const GR_AUX_BEFORE = new Set(['do', 'does', 'did', 'can', 'could', 'will', 'would', 'shall', 'should', 'may', 'might',
+            'must', 'to', 'let', 'make', 'help', 'see', 'watch', 'hear', "doesn't", "didn't", "don't", "won't", "can't", 'cannot',
+            "couldn't", "wouldn't", "shouldn't", "mustn't", 'has', 'have', 'had']);
+        // "she read" ötgan zamonda ham töğri ("read" — "red" deb öqiladi), şuning uçun he/she qoidasida tekşirilmaydi
+        const GR_SAME_IN_PAST = new Set(['read']);
+        // Artikldan keyin kelmaydigan sözlar: "Plan A or B" dagi "A" — harf, artikl emas
+        const GR_NOT_AFTER_ARTICLE = new Set(['and', 'or', 'of', 'in', 'on', 'at', 'as', 'is', 'if', 'it', 'to', 'an', 'a']);
+        const GR_AN_BEFORE_U = ['university', 'unique', 'useful', 'user', 'usual', 'usually', 'union', 'uniform', 'unit', 'european', 'one', 'once'];
+        const GR_A_BEFORE_SILENT_H = ['hour', 'hours', 'honest', 'honour', 'honor', 'heir'];
+        const GR_A_BEFORE_SHORT_U = ['umbrella', 'uncle', 'ugly', 'unusual', 'unhappy', 'update', 'unknown', 'understanding'];
+
+        function findGrammarIssues(text) {
+            const issues = [];
+            const seen = new Set();
+            const add = (wrong, right, why) => {
+                const key = wrong.toLowerCase();
+                if (!seen.has(key)) { seen.add(key); issues.push({ wrong, right, why }); }
+            };
+            const keepCase = (orig, repl) => /^[A-Z]/.test(orig) ? repl[0].toUpperCase() + repl.slice(1) : repl;
+            const wordBefore = (idx) => ((text.slice(0, idx).match(/([A-Za-z']+)[^A-Za-z']*$/) || [])[1] || '').toLowerCase();
+            const each = (re, fn) => { for (const m of text.matchAll(re)) fn(m); };
+
+            // 1. "to be" moslaşuvi: he are → he is, I is → I am, they is → they are
+            each(/\b(he|she|it)\s+(are)\b/gi, m => add(m[0], `${m[1]} is`, '"he / she / it" bilan "is" işlatiladi.'));
+            each(/\b(I)\s+(is|are)\b/g, m => add(m[0], 'I am', '"I" bilan faqat "am" işlatiladi.'));
+            each(/\b(you|we|they)\s+(is|am)\b/gi, m => add(m[0], `${m[1]} are`, '"you / we / they" bilan "are" işlatiladi.'));
+            each(/\b(you|we|they)\s+(was)\b/gi, m => add(m[0], `${m[1]} were`, '"you / we / they" bilan ötgan zamonda "were" işlatiladi.'));
+
+            // 2. 3-şaxs birlik: he go → he goes, she don't → she doesn't
+            each(/\b(he|she)\s+([a-z]+)\b/gi, m => {
+                const verb = m[2].toLowerCase();
+                if (!GR_VERBS[verb] || GR_SAME_IN_PAST.has(verb) || GR_AUX_BEFORE.has(wordBefore(m.index))) return;
+                add(m[0], `${m[1]} ${GR_VERBS[verb]}`, 'Hozirgi zamonda "he / she" dan keyin fe\'lga -s / -es qöşiladi.');
+            });
+            each(/\b(he|she|it)\s+(don't)\b/gi, m => add(m[0], `${m[1]} doesn't`, '"he / she / it" bilan "doesn\'t" işlatiladi.'));
+            each(/\b(it)\s+(have)\b/gi, m => {
+                if (!GR_AUX_BEFORE.has(wordBefore(m.index))) add(m[0], `${m[1]} has`, '"it" bilan "has" işlatiladi.');
+            });
+
+            // 3. I / you / we / they + -s: I goes → I go, we plays → we play
+            each(/\b(I|you|we|they)\s+([a-z]+)\b/gi, m => {
+                if (m[1] === 'i') return; // kiçik "i" alohida tekşiriladi
+                const verb = m[2].toLowerCase();
+                if (GR_THIRD[verb]) add(m[0], `${m[1]} ${GR_THIRD[verb]}`, `"${m[1] === 'I' ? 'I' : m[1].toLowerCase()}" bilan fe'l -s qöşimçasiz yoziladi.`);
+            });
+
+            // 4. Modal fe'l: can to swim → can swim, can swims → can swim
+            each(/\b(can|must|should|could|would|might|may)\s+to\s+([a-z]+)\b/gi, m =>
+                add(m[0], `${m[1]} ${m[2]}`, `"${m[1].toLowerCase()}" dan keyin "to" qöyilmaydi.`));
+            each(/\b(can|must|should|could|would|might|may|will)\s+([a-z]+)\b/gi, m => {
+                const verb = m[2].toLowerCase();
+                const base = GR_THIRD[verb] || (GR_PAST[verb] && verb !== 'had' ? GR_PAST[verb] : null);
+                if (base) add(m[0], `${m[1]} ${base}`, `"${m[1].toLowerCase()}" dan keyin fe'lning asosiy şakli keladi.`);
+            });
+
+            // 5. Inkor: didn't went → didn't go, doesn't likes → doesn't like
+            each(/\b(didn't|did not|doesn't|does not|don't|do not)\s+([a-z]+)\b/gi, m => {
+                const verb = m[2].toLowerCase();
+                const base = GR_PAST[verb] || GR_THIRD[verb];
+                if (base) add(m[0], `${m[1]} ${base}`, `"${m[1].toLowerCase()}" dan keyin fe'lning asosiy şakli keladi.`);
+            });
+
+            // 6. Ötgan zamon belgisi bilan hozirgi zamon: "Yesterday I go" → "Yesterday I went"
+            each(/\b(yesterday|last (?:week|year|month|night|summer|winter|weekend|sunday|saturday))\s*,?\s+(I|we|they|you|he|she)\s+(go|goes|am|is|are|come|comes|eat|eats|have|has|buy|buys|visit|visits|play|plays)\b/gi, m => {
+                const verb = m[3].toLowerCase();
+                const past = { go: 'went', goes: 'went', come: 'came', comes: 'came', eat: 'ate', eats: 'ate', have: 'had', has: 'had',
+                    buy: 'bought', buys: 'bought', visit: 'visited', visits: 'visited', play: 'played', plays: 'played',
+                    am: 'was', is: 'was', are: /^(I|he|she)$/i.test(m[2]) ? 'was' : 'were' }[verb];
+                add(m[0], m[0].replace(new RegExp(`\\b${m[3]}\\b`), past), `"${m[1].toLowerCase()}" — ötgan vaqt, fe'l ham ötgan zamonda böliş kerak.`);
+            });
+
+            // 7. "I am agree" — özbekçadan köçirma ("men roziman")
+            each(/\b(am|is|are)\s+(agree|disagree)\b/gi, m => add(m[0], m[2], `"${m[2].toLowerCase()}" fe'l, uning oldidan "am / is / are" qöyilmaydi.`));
+
+            // 8. Artikl: a apple → an apple, an book → a book
+            each(/\b(a)\s+([a-z]+)\b/gi, m => {
+                const w = m[2].toLowerCase();
+                if (GR_NOT_AFTER_ARTICLE.has(w) || w.startsWith('eu')) return;
+                const vowelSound = (/^[aeio]/.test(w) && !GR_AN_BEFORE_U.includes(w)) || GR_A_BEFORE_SILENT_H.includes(w) || GR_A_BEFORE_SHORT_U.includes(w);
+                if (vowelSound && w !== 'lot') add(m[0], keepCase(m[1], 'an') + ' ' + m[2], 'Unli tovuş bilan boşlanadigan söz oldidan "an" işlatiladi.');
+            });
+            each(/\b(an)\s+([a-z]+)\b/gi, m => {
+                const w = m[2].toLowerCase();
+                if (GR_NOT_AFTER_ARTICLE.has(w) || /^[A-Z]{2,}$/.test(m[2])) return; // "an MBA" — qisqartma harflab öqiladi
+                const consonantSound = (/^[bcdfgjklmnpqrstvwxyz]/.test(w) && !GR_A_BEFORE_SILENT_H.includes(w)) || GR_AN_BEFORE_U.includes(w)
+                    || (/^h/.test(w) && !GR_A_BEFORE_SILENT_H.includes(w));
+                if (consonantSound) add(m[0], keepCase(m[1], 'a') + ' ' + m[2], 'Undoş tovuş bilan boşlanadigan söz oldidan "a" işlatiladi.');
+            });
+
+            // 9. "more better" — qiyosiy daraja ikki marta
+            each(/\b(more|most)\s+(better|worse|bigger|smaller|easier|harder|faster|best|worst)\b/gi, m =>
+                add(m[0], m[2], `"${m[2].toLowerCase()}" özi qiyosiy daraja — "${m[1].toLowerCase()}" ortiqça.`));
+
+            // 10. Takrorlangan söz: "the the"
+            each(/\b([a-z]+)\s+\1\b/gi, m => {
+                if (!['that', 'had', 'very', 'bye', 'ha'].includes(m[1].toLowerCase())) add(m[0], m[1], 'Bir söz ketma-ket ikki marta yozilgan.');
+            });
+
+            // Bir xato ikki qoidaga tuşsa ("I goes" va "Yesterday I goes"), uzunroği — aniqroği qoladi
+            return issues.filter(a => !issues.some(b => b !== a && b.wrong.length > a.wrong.length
+                && b.wrong.toLowerCase().includes(a.wrong.toLowerCase())));
+        }
+        // GRAMMAR-END
+
         function analyzeWriting() {
             const text = document.getElementById('writing-textarea').value.trim();
             const words = text ? text.split(/\s+/) : [];
@@ -3552,42 +3743,54 @@
             const minWords = currentWritingItem.minWords;
             const lowerText = text.toLowerCase();
 
-            // 1. Hajm (30 ball) — talabga qançalik yaqin bölsa, şunça ball
-            score += Math.round(30 * Math.min(1, wordCount / minWords));
+            // 1. Hajm (25 ball) — talabga qançalik yaqin bölsa, şunça ball
+            score += Math.round(25 * Math.min(1, wordCount / minWords));
             if (wordCount >= minWords) {
                 tips.push(`✅ <strong>Hajm talabi bajarildi:</strong> Siz ${wordCount} ta söz yozdingiz (talab: ${minWords} ta).`);
             } else {
                 tips.push(`⚠️ <strong>Matnni biroz kengaytiring:</strong> Kamida ${minWords} ta söz yoziş kerak (hozir ${wordCount} ta).`);
             }
 
-            // 2. Luğat xilma-xilligi (20 ball) — "a a a a a" kabi takrorlarni uşlaydi
+            // 2. Luğat xilma-xilligi (15 ball) — "a a a a a" kabi takrorlarni uşlaydi
             const wordList = lowerText.match(/[a-z']+/g) || [];
             const uniqueRatio = wordList.length ? new Set(wordList).size / wordList.length : 0;
-            score += Math.round(20 * Math.min(1, uniqueRatio / 0.6));
+            score += Math.round(15 * Math.min(1, uniqueRatio / 0.6));
             if (uniqueRatio < 0.5) {
                 tips.push(`⚠️ <strong>Takrorlar köp:</strong> Bir xil sözlarni qayta-qayta işlatmang, sinonimlardan foydalaning.`);
             }
 
-            // 3. Har bir gap boş harf bilan boşlanib, tiniş belgisi bilan tugaşi (20 ball)
+            // 3. Har bir gap boş harf bilan boşlanib, tiniş belgisi bilan tugaşi (15 ball)
             const sentences = text.split(/(?<=[.!?])\s+/).filter(s => s.trim());
             const wellFormed = sentences.filter(s => /^[A-Z"']/.test(s) && /[.!?]["']?$/.test(s)).length;
-            score += Math.round(20 * (wellFormed / sentences.length));
+            score += Math.round(15 * (wellFormed / sentences.length));
             if (wellFormed === sentences.length) {
                 tips.push(`✅ <strong>Tiniş belgilari va imlo:</strong> Barça gaplar boş harf bilan boşlanib, töğri yakunlangan.`);
             } else {
                 tips.push(`💡 <strong>Imlo maslahati:</strong> ${sentences.length} ta gapdan ${wellFormed} tasi töğri yozilgan. Har bir gapni katta harf bilan boşlab, oxiriga nuqta (.) qöying.`);
             }
 
-            // 4. Kiçik "i" — özbek öquvçilarining eng köp uçraydigan xatosi (10 ball)
+            // 4. Grammatika (30 ball) — har bir topilgan xato uçun 10 ball ayriladi
+            const grammarIssues = findGrammarIssues(text);
+            // Kiçik "i" — özbek öquvçilarining eng köp uçraydigan xatosi
             if (/(^|[\s,])i([\s,']|$)/.test(text)) {
-                tips.push(`💡 <strong>Grammatika:</strong> Ingliz tilida "I" (men) olmoşi har doim katta harf bilan yoziladi.`);
+                grammarIssues.unshift({ wrong: 'i', right: 'I', why: 'Ingliz tilida "I" (men) olmoşi har doim katta harf bilan yoziladi.' });
+            }
+            score += Math.max(0, 30 - 10 * grammarIssues.length);
+            if (grammarIssues.length === 0) {
+                tips.push(`✅ <strong>Grammatika:</strong> Köp uçraydigan xatolar topilmadi.`);
             } else {
-                score += 10;
+                const list = grammarIssues.slice(0, 6).map(g => `
+                    <span class="block pl-3 border-l-2 border-rose-300 dark:border-rose-800">
+                        <span class="line-through text-rose-600 dark:text-rose-400" lang="en">${escapeHtml(g.wrong)}</span> →
+                        <span class="font-bold text-emerald-700 dark:text-emerald-400" lang="en">${escapeHtml(g.right)}</span>
+                        <span class="block text-xs text-slate-500 dark:text-slate-400">${escapeHtml(g.why)}</span>
+                    </span>`).join('');
+                tips.push(`❌ <strong>Grammatika: ${grammarIssues.length} ta xato topildi</strong><span class="block mt-2 space-y-2">${list}</span>`);
             }
 
-            // 5. Tavsiya etilgan iboralar (20 ball)
+            // 5. Tavsiya etilgan iboralar (15 ball)
             const usedChips = currentWritingItem.chips.filter(c => lowerText.includes(c.toLowerCase().replace(/[,.]/g, '').trim()));
-            score += Math.min(20, usedChips.length * 7);
+            score += Math.min(15, usedChips.length * 7);
             if (usedChips.length > 0) {
                 tips.push(`🌟 <strong>Akademik iboralar:</strong> Tavsiya etilgan foydali iboralardan (${usedChips.length} ta) unumli foydalandingiz!`);
             } else {
@@ -3595,13 +3798,15 @@
             }
 
             score = Math.min(100, score);
+            // Grammatik xato köp bölsa (3+), boşqa mezonlar yaxşi bölsa ham ball ötiş çegarasidan (60) past böladi
+            if (grammarIssues.length > 2) score = Math.min(score, 59);
             const passed = wordCount >= minWords && score >= 60;
 
             const badge = document.getElementById('writing-score-badge');
             badge.textContent = `${score} / 100`;
             badge.className = `px-3.5 py-1.5 rounded-xl text-white font-extrabold text-sm ${score >= 80 ? 'bg-emerald-500' : score >= 60 ? 'bg-amber-500' : 'bg-rose-500'}`;
             if (!passed) {
-                tips.push(`🔒 <strong>XP oliş uçun:</strong> kamida ${minWords} ta söz va 60 ball kerak. Matnni tuzatib, qayta tekşiring.`);
+                tips.push(`🔒 <strong>XP oliş uçun:</strong> kamida ${minWords} ta söz, 60 ball va köpi bilan 2 ta grammatik xato kerak. Matnni tuzatib, qayta tekşiring.`);
             }
             document.getElementById('writing-feedback-content').innerHTML = tips.map(t => `<p>${t}</p>`).join('');
             document.getElementById('writing-feedback-box').classList.remove('hidden');
@@ -3626,6 +3831,8 @@
             document.getElementById('speaking-target-uz').textContent = `"${currentSpeakingItem.uz}"`;
             document.getElementById('speaking-result-box').classList.add('hidden');
             document.getElementById('mic-status-text').textContent = "Gapiriş uçun mikrofon tugmasini bosing";
+            // Firefox kabi brauzerlarda mikrofon tekşiruvi umuman yöq — zaxira tugma darhol körinadi
+            if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) showSpeechFallback();
         }
 
         function toggleSpeechRecognition() {
@@ -3636,11 +3843,13 @@
 
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
             if (!SpeechRecognition) {
-                showToast("Brauzeringizda ovozni aniqlaş (SpeechRecognition) mavjud emas. Simulyatsiyadan foydalaning.", 'info');
+                showToast("Brauzeringiz gapni aniqlaşni qöllamaydi (Chrome yoki Edge kerak). Pastdagi tugma orqali sinab köring.", 'info');
+                showSpeechFallback();
                 return;
             }
             if (!navigator.onLine) {
                 showToast("Gapni tekşiriş uçun internet kerak. Hozirça gapni tinglab, takrorlab maşq qiling.", 'info');
+                showSpeechFallback();
                 return;
             }
 
@@ -3666,8 +3875,10 @@
                     stopRecordingIfActive();
                     if (event.error === 'network') {
                         showToast("Gapni tekşiriş uçun internet kerak — brauzer ovozni serverda aniqlaydi.", 'info');
+                        showSpeechFallback();
                     } else if (event.error === 'not-allowed') {
-                        showToast("Mikrofonga ruxsat berilmadi. Pastdagi simulyatsiya tugmasini bosing.", 'info');
+                        showToast("Mikrofonga ruxsat berilmadi. Brauzer manzil satridagi 🔒 belgisi orqali ruxsat bering.", 'info');
+                        showSpeechFallback();
                     } else {
                         showToast("Ovoz aniqlanmadi. Qaytadan urinib köring.", 'info');
                     }
@@ -3680,7 +3891,8 @@
                 recognition.start();
             } catch (e) {
                 stopRecordingIfActive();
-                showToast("Mikrofonni işga tuşirib bölmadi. Simulyatsiyadan foydalaning.", 'info');
+                showToast("Mikrofonni işga tuşirib bölmadi. Pastdagi tugma orqali sinab köring.", 'info');
+                showSpeechFallback();
             }
         }
 
@@ -3695,6 +3907,11 @@
             if (ring) ring.classList.add('hidden');
             if (icon) icon.className = 'fa-solid fa-microphone';
             if (status) status.textContent = "Gapiriş uçun mikrofon tugmasini bosing";
+        }
+
+        // Mikrofon işlamasa — simulyatsiya tugmasini körsatamiz (boşqa paytda u keraksiz va çalğitadi)
+        function showSpeechFallback() {
+            document.getElementById('speech-sim-btn').classList.remove('hidden');
         }
 
         function simulateSpeechSuccess() {
