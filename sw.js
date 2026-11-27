@@ -8,7 +8,7 @@
 //  • Kutubxonalar va şriftlar: keşdan beriladi (tez), orqa fonda yangilab qöyiladi.
 //
 // Ilova yangilanganda CACHE_VERSION ni oşiring — eski keş öçiriladi.
-const CACHE_VERSION = 'linguauz-v6';
+const CACHE_VERSION = 'linguauz-v7';
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const LIB_CACHE = `${CACHE_VERSION}-lib`;
 
